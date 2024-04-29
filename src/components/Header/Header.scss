@@ -1,0 +1,112 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+
+.header {
+    padding: 0 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include mixins.tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 32px;
+    }
+
+    @include mixins.desktop {
+        padding: 0 120px;
+        justify-content: space-around;
+        
+    }
+
+    &__logo {
+        height: 25px;
+        width: 120px;
+        margin: 16px 8px 8px 8px;
+
+        @include mixins.tablet {
+            margin-top: 8px;
+        }
+
+    }
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+
+        @include mixins.tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 75%;
+            padding: 8px;
+            margin-right: 72px;
+        }
+    }
+    &__search {
+        height: 40px;
+        padding: 8px 8px 8px 40px;
+        background-color: variables.$alabaster;
+        background-image: url('../../assets/search.svg');
+        background-repeat: no-repeat;
+        background-position: 12px;
+        width: 80%;
+        border: 1px solid variables.$mercury;
+        border-radius: 4px;
+        margin: 8px 0;
+
+        @include mixins.tablet {
+           width: 50%;
+           margin-right: 32px;
+           height: 45px;
+        }
+
+        &::placeholder{
+            color: variables.$brainflix-darkblack;
+        }
+
+        &-btn {
+            color: variables.$white;
+            font-size: 12px;
+            background-color: variables.$brainflix-blue;
+            background-image: url('../../assets/upload.svg');
+            background-position: 8px;
+            background-repeat: no-repeat;
+            margin-top: 8px;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            font-weight: 600;
+
+            @include mixins.tablet {
+                width: 30%;
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+    }
+    &__pfp {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: left;
+        position: absolute;
+        right: 20px;
+        top: 55px;
+
+        @include mixins.tablet {
+            width: 50px;
+            height: 50px;
+            right: 40px;
+            top: 16px;
+        }
+        @include mixins.desktop {
+            right: 120px;
+        }
+    }
+}

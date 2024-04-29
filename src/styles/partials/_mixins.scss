@@ -1,0 +1,16 @@
+@use 'variables';
+@use 'typography';
+
+// responsive mixins
+@mixin tablet {
+    @media screen and (min-width: variables.$tablet-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: variables.$desktop-breakpoint) {
+        @content;
+    }
+}
+
