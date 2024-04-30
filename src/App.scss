@@ -1,5 +1,6 @@
 @use './styles/partials/variables';
 @use './styles/partials/typography';
+@use './styles/partials/mixins';
 
 
 #root {
@@ -7,6 +8,45 @@
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: typography.$font-local;
+  color: variables.$brainflix-black;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+
+  @include mixins.tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+
+  @include mixins.tablet {
+    font-size: 33px;
+    line-height: 44px;
+  }
+}
+
+h2 {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 600;
+  
+  @include mixins.tablet {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }

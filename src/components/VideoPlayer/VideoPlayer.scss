@@ -1,0 +1,9 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+
+.main {
+    &__video {
+        width: 100%;
+        height: 200px;
+    }
+}

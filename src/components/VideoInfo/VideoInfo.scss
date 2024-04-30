@@ -1,0 +1,52 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+
+.main {
+    &__video {
+        &-info {
+            display: flex;
+            flex-direction: column;
+            margin: 16px;
+        }
+        &-title {
+            padding-bottom: 16px;
+            border-bottom: 1px solid variables.$mercury;
+        }
+        &-details {
+            display: flex;
+            justify-content: space-between;
+            width: 85%;
+            padding: 16px 0;
+
+            &--left {
+                display: flex;
+                flex-direction: column;
+            }
+            &--right {
+                @extend .main__video-details--left;
+            }
+        }
+        &-date, &-likes {
+            color: variables.$silver;
+            padding-top: 16px;
+        }
+        &-views {
+            display: flex;
+            color: variables.$silver;
+            align-self: top;
+            &-image {
+                margin-right: 8px;
+            }
+        }
+        &-likes {
+            @extend .main__video-views;
+            &-image {
+                margin-right: 8px;
+            }
+        }
+        &-description {
+            border-top: 1px solid variables.$mercury;
+            padding-top: 16px;
+        }
+    }
+}
