@@ -1,0 +1,17 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+
+.videos {
+    &__list {
+        &-title {
+            color: variables.$silver;
+            font-size: 12px;
+            padding: 16px 16px 8px 16px;
+
+            @include mixins.tablet {
+                padding: 16px 16px 16px 36px;
+                font-size: 14px;
+            }
+        }
+    }
+}
