@@ -16,8 +16,7 @@
                 font-size: 14px;
             }
             @include mixins.desktop {
-                padding-top:  36px;
-                padding-bottom: 0;
+                padding: 36px 16px 0 24px;
             }
         }
     }

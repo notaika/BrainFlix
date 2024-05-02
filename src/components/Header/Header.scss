@@ -86,6 +86,9 @@
             width: 100%;
             font-weight: 600;
 
+            &:hover {
+                cursor: pointer;
+            }
             @include mixins.tablet {
                 width: 35%;
                 font-size: 14px;

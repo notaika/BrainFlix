@@ -1,35 +1,35 @@
-import VideoPlayer from '../VideoPlayer/VideoPlayer';
-import VideoInfo from '../VideoInfo/VideoInfo';
-import VideoDetails from '../../data/video-details.json';
-import CommentSection from '../CommentSection/CommentSection';
-import Sidebar from '../Sidebar/Sidebar'
-import { useState } from 'react';
-import './Main.scss';
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import VideoInfo from "../VideoInfo/VideoInfo";
+import VideoDetails from "../../data/video-details.json";
+import CommentSection from "../CommentSection/CommentSection";
+import Sidebar from "../Sidebar/Sidebar";
+import { useState } from "react";
+import "./Main.scss";
 
 export function Main() {
-    const [commentItem, setCommentItem] = useState(VideoDetails[0].comments)
-    function renderComments(id) {
-        setCommentItem(id)
-    }
-    const [featuredVideo, setFeaturedVideo] = useState(VideoDetails[0].video)
+  const videoData = VideoDetails;
 
-    function updateFeaturedVideo(id) {
-        setFeaturedVideo(id)
-    }
+  const [featuredVideo, setFeaturedVideo] = useState(videoData[0]);
 
-    return (
-        <main className="main">   
-            <VideoPlayer src={featuredVideo} image={VideoDetails[0].image}/>
-            <div className="main__desktop">
-                <div className="main__desktop--left">
-                    <VideoInfo details={VideoDetails}/>
-                    <CommentSection details={VideoDetails} comments={commentItem} renderComments={renderComments}/>
-                </div>
-                <Sidebar />
-            </div>
-                
-        </main>
-    )
+  function updateFeaturedVideo(id) {
+    const newFeaturedVideo = videoData.find((video) => video.id === id);
+    setFeaturedVideo(newFeaturedVideo);
+  }
+
+  return (
+    <main className="main">
+      <VideoPlayer videoData={videoData} featuredVideo={featuredVideo} />
+      <div className="main__desktop">
+        <div className="main__desktop--left">
+          <VideoInfo details={videoData} featuredVideo={featuredVideo} />
+          <CommentSection videoData={videoData} featuredVideo={featuredVideo} />
+        </div>
+        <Sidebar
+          videoData={videoData} featuredVideo={featuredVideo} updateFeaturedVideo={updateFeaturedVideo}
+        />
+      </div>
+    </main>
+  );
 }
 
 export default Main;
