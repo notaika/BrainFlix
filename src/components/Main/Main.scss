@@ -1,0 +1,16 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+
+.main {
+    
+    &__desktop {
+        @include mixins.desktop {
+            display: flex;
+        }
+        &--left {
+            @include mixins.desktop {
+                padding: 24px 0 0 80px;
+            }
+        }
+    }
+}

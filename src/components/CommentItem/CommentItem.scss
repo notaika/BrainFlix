@@ -1,2 +1,62 @@
 @use '../../styles/partials/variables';
 @use '../../styles/partials/mixins';
+
+.comments {
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid variables.$mercury;
+        margin: 16px;
+
+        &:last-of-type {
+            border-bottom: none;
+        }
+
+        @include mixins.tablet {
+            justify-content: flex-start;
+        }
+        @include mixins.desktop {
+            margin: 8px 0 8px 16px;
+        }
+
+        &-pfp {
+            background-color: variables.$mercury;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            
+            @include mixins.tablet {
+                margin-top: 4px;
+                margin-right: 16px;
+                width: 44px;
+            }
+            @include mixins.desktop {
+                margin-top: 16px;
+            }
+        }
+        &--right {
+            display: flex;
+            flex-direction: column;
+            width: 85%;
+            margin-left: 16px;
+
+            @include mixins.tablet {
+                width: 100%;
+                margin-left: 16px;
+            }
+            @include mixins.desktop {
+                margin: 16px 16px 8px 16px;;
+            }
+        }
+        &--top {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__date {
+        color: variables.$silver;
+    }
+    &__text {
+        padding: 8px 0 16px 0;
+    }
+}

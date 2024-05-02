@@ -1,2 +1,105 @@
 @use '../../styles/partials/variables';
 @use '../../styles/partials/mixins';
+
+.comments {
+    @include mixins.tablet {
+        margin: 16px 20px;
+    }
+    @include mixins.desktop {
+        margin-right: 0;
+    }
+    &__count {
+        padding-left: 16px;
+        @include mixins.tablet {
+            padding-top: 12px;
+        }
+    }
+    &__pfp {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position:left;
+        margin: 24px 16px 0 0;
+
+        @include mixins.tablet {
+            margin: 32px 24px 0 0;
+        }
+        @include mixins.desktop {
+            margin-right: 32px;
+        }
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @include mixins.tablet {
+            justify-content: space-between;
+            flex-direction: row;
+            margin-bottom: 12px;
+        }
+        
+        @include mixins.desktop {
+            margin-right: 16px;
+        }
+        &-container {
+            display: flex;
+            margin: 16px;
+            border-bottom: 1px solid variables.$mercury;
+
+            @include mixins.desktop {
+                margin: 16px 0 0 16px;
+            }
+        }
+        &-title {
+            color: variables.$silver;
+            text-transform: uppercase;
+            padding-bottom: 8px;
+        }
+    }
+    &__comment {
+        height: 100px;
+        border: 1px solid variables.$mercury;
+        border-radius: 4px;
+        outline: none;
+        padding: 12px;
+        background-color: variables.$alabaster;
+        width: 100%;
+
+        &::placeholder {
+            color: variables.$brainflix-darkblack;
+        }
+        
+        @include mixins.tablet {
+            height: 48px;
+            width: 53vw;
+        }
+        @include mixins.desktop {
+            width: 38vw;
+        }
+    }
+    &__submit {
+        background-color: variables.$brainflix-blue;
+        background-image: url('../../assets/add_comment.svg');
+        background-repeat: no-repeat;
+        background-position: 3%;
+        color: variables.$alabaster;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        margin: 16px 0;
+
+        @include mixins.tablet {
+            width: 30%;
+            background-position: 6%;
+            margin-top: 30px;
+            padding: 13px;
+        }
+        @include mixins.desktop {
+            width: 25%;
+        }
+    }
+}

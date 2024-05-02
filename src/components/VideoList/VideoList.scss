@@ -21,6 +21,9 @@
             width: 400px;
             padding: 16px 36px;
         }
+        @include mixins.desktop {
+            padding-left: 24px;
+        }
     }
     &__img {
         height: 60px;

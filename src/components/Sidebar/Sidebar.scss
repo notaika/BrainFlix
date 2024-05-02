@@ -2,15 +2,22 @@
 @use '../../styles/partials/mixins';
 
 .videos {
+    @include mixins.desktop {
+        border-left: 1px solid variables.$mercury;
+    }
     &__list {
         &-title {
             color: variables.$silver;
             font-size: 12px;
-            padding: 16px 16px 8px 16px;
+            padding: 0 16px 8px 16px;
 
             @include mixins.tablet {
                 padding: 16px 16px 16px 36px;
                 font-size: 14px;
+            }
+            @include mixins.desktop {
+                padding-top:  36px;
+                padding-bottom: 0;
             }
         }
     }
