@@ -11,10 +11,15 @@ export function Main() {
     function renderComments(id) {
         setCommentItem(id)
     }
+    const [featuredVideo, setFeaturedVideo] = useState(VideoDetails[0].video)
+
+    function updateFeaturedVideo(id) {
+        setFeaturedVideo(id)
+    }
 
     return (
         <main className="main">   
-            <VideoPlayer src={VideoDetails}/>
+            <VideoPlayer src={featuredVideo} image={VideoDetails[0].image}/>
             <div className="main__desktop">
                 <div className="main__desktop--left">
                     <VideoInfo details={VideoDetails}/>

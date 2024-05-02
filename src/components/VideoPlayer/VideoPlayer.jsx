@@ -1,12 +1,12 @@
 import './VideoPlayer.scss';
 
-export function VideoPlayer(props) {
-    const mainVideo = props.src[0];
+export function VideoPlayer({ src, image}) {
+    const mainVideo = src;
 
     return (
         <div className="main__container">
-            <video className="main__video" poster={mainVideo.image} alt="The current video playing" controls>
-                <source src={mainVideo.video} type="video/mp4" />
+            <video className="main__video" poster={image} alt="The current video playing" controls>
+                <source src={mainVideo} type="video/mp4" />
             </video>
         </div>
     )
