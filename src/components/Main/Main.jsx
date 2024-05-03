@@ -10,7 +10,7 @@ export function Main() {
   const videoData = VideoDetails;
   const [featuredVideo, setFeaturedVideo] = useState(videoData[0]);
 
-  function updateFeaturedVideo(id) {
+  function handleFeaturedVideo(id) {
     const newFeaturedVideo = videoData.find((video) => video.id === id);
     setFeaturedVideo(newFeaturedVideo);
   }
@@ -24,7 +24,9 @@ export function Main() {
           <CommentSection videoData={videoData} featuredVideo={featuredVideo} />
         </div>
         <Sidebar
-          videoData={videoData} featuredVideo={featuredVideo} updateFeaturedVideo={updateFeaturedVideo}
+          videoData={videoData}
+          featuredVideo={featuredVideo}
+          handleFeaturedVideo={handleFeaturedVideo}
         />
       </div>
     </main>

@@ -3,20 +3,20 @@
 
 .videos {
     @include mixins.desktop {
-        border-left: 1px solid variables.$mercury;
+        border-left: 0.0625rem solid variables.$mercury;
     }
     &__list {
         &-title {
             color: variables.$silver;
-            font-size: 12px;
-            padding: 0 16px 8px 16px;
+            font-size: 0.75rem;
+            padding: 0 1rem 0.5rem 1rem;
 
             @include mixins.tablet {
-                padding: 16px 16px 16px 36px;
-                font-size: 14px;
+                padding: 1rem 1rem 1rem 2.25rem;
+                font-size: 0.875rem;
             }
             @include mixins.desktop {
-                padding: 36px 16px 0 24px;
+                padding: 2.25rem 1rem 0 1.5rem;
             }
         }
     }

@@ -2,9 +2,10 @@ import VideoList from "../VideoList/VideoList";
 import VideoDetails from "../../data/video-details.json";
 import "./Sidebar.scss";
 
-export function Sidebar({ videoData, featuredVideo, updateFeaturedVideo }) {
-  const filteredVideos = videoData.filter((videos) => 
-    videos.id !== featuredVideo.id);
+export function Sidebar({ videoData, featuredVideo, handleFeaturedVideo }) {
+  const filteredVideos = videoData.filter(
+    (videos) => videos.id !== featuredVideo.id
+  );
 
   return (
     <aside className="videos">
@@ -18,7 +19,7 @@ export function Sidebar({ videoData, featuredVideo, updateFeaturedVideo }) {
             channel={video.channel}
             id={video.id}
             key={video.id}
-            onClick={() => updateFeaturedVideo(video.id)}
+            onClick={() => handleFeaturedVideo(video.id)}
           />
         );
       })}

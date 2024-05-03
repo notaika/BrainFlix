@@ -6,15 +6,18 @@
         &-info {
             display: flex;
             flex-direction: column;
-            margin: 16px;
+            margin: 1rem;
 
             @include mixins.tablet {
-                margin: 16px 36px;
+                margin: 1rem 2.25rem;
+            }
+            @include mixins.desktop {
+                margin-right: 0;   
             }
         }
         &-title {
-            padding-bottom: 16px;
-            border-bottom: 1px solid variables.$mercury;
+            padding-bottom: 1rem;
+            border-bottom: 0.0625rem solid variables.$mercury;
 
             @include mixins.tablet {
                 border-bottom: none;
@@ -25,11 +28,14 @@
             display: flex;
             justify-content: space-between;
             width: 85%;
-            padding: 16px 0;
+            padding: 1rem 0;
 
             @include mixins.tablet {
                 width: 100%;
-                padding-bottom: 8px;
+                padding-bottom: 0.5rem;
+            }
+            @include mixins.desktop {
+                padding-right: 0;   
             }
 
             &--left {
@@ -43,6 +49,10 @@
             }
             &--right {
                 @extend .main__video-details--left;
+
+                @include mixins.desktop {
+                padding-right: 1.5rem;   
+            }
             }
         }
         &-channel {
@@ -52,11 +62,11 @@
         }
         &-date, &-likes {
             color: variables.$silver;
-            padding-top: 16px;
+            padding-top: 1rem;
 
             @include mixins.tablet {
                 padding-top: 0;
-                margin-left: 40px;
+                margin-left: 2.5rem;
             }
         }
         &-views {
@@ -64,18 +74,19 @@
             color: variables.$silver;
             align-self: top;
             &-image {
-                margin-right: 8px;
+                margin-right: 0.5rem;
             }
         }
         &-likes {
             @extend .main__video-views;
             &-image {
-                margin-right: 8px;
+                margin-right: 0.5rem;
             }
         }
         &-description {
-            border-top: 1px solid variables.$mercury;
-            padding-top: 16px;
+            border-top: 0.0625rem solid variables.$mercury;
+            padding-top: 1rem;
+            
         }
     }
 }

@@ -3,34 +3,35 @@
 
 .videos {
     &:last-child {
-        padding-bottom: 32px;
+        padding-bottom: 2rem;
     }
     &__item {
         display: flex;
-        padding: 8px 16px 8px 16px;
-        width: 320px;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        width: 20rem;
 
         &--right {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding-left: 16px;
+            padding-left: 1rem;
         }
 
         @include mixins.tablet {
-            width: 400px;
-            padding: 16px 36px;
+            width: 25rem;
+            padding: 1rem 2.25rem;
         }
         @include mixins.desktop {
-            padding-left: 24px;
+            padding: 0.75rem 0 0.75rem 1.5rem;
+            
         }
     }
     &__img {
-        height: 60px;
-        border-radius: 4px;
+        height: 3.75rem;
+        border-radius: 0.25rem;
         
         @include mixins.tablet {
-            height: 70px;
+            height: 4.375rem;
         }
     }
 }

@@ -5,47 +5,49 @@
     &__item {
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid variables.$mercury;
-        margin: 16px;
+        border-bottom: 0.0625rem solid variables.$mercury;
+        margin: 1rem;
 
         &:last-of-type {
-            border-bottom: none;
+            @include mixins.desktop {
+                border-bottom: none;
+            }
         }
 
         @include mixins.tablet {
             justify-content: flex-start;
         }
         @include mixins.desktop {
-            margin: 8px 0 8px 16px;
+            margin: 0.5rem 0 0.5rem 1rem;
         }
 
         &-pfp {
             background-color: variables.$mercury;
-            width: 40px;
-            height: 40px;
+            width: 2.5rem;
+            height: 2.5rem;
             border-radius: 50%;
             
             @include mixins.tablet {
-                margin-top: 4px;
-                margin-right: 16px;
-                width: 44px;
+                margin-top: 0.25rem;
+                margin-right: 1rem;
+                width: 2.75rem;
             }
             @include mixins.desktop {
-                margin-top: 16px;
+                margin-top: 1rem;
             }
         }
         &--right {
             display: flex;
             flex-direction: column;
             width: 85%;
-            margin-left: 16px;
+            margin-left: 1rem;
 
             @include mixins.tablet {
                 width: 100%;
-                margin-left: 16px;
+                margin-left: 1rem;
             }
             @include mixins.desktop {
-                margin: 16px 16px 8px 16px;;
+                margin: 1rem 1rem 0.5rem 1rem;;
             }
         }
         &--top {
@@ -57,6 +59,6 @@
         color: variables.$silver;
     }
     &__text {
-        padding: 8px 0 16px 0;
+        padding: 0.5rem 0 1rem 0;
     }
 }
