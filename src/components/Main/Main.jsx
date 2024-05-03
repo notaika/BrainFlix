@@ -8,6 +8,7 @@ import "./Main.scss";
 
 export function Main() {
   const videoData = VideoDetails;
+  
   const [featuredVideo, setFeaturedVideo] = useState(videoData[0]);
 
   function handleFeaturedVideo(id) {

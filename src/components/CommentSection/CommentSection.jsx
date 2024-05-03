@@ -1,10 +1,38 @@
 import CommentItem from "../CommentItem/CommentItem";
+import { useState } from "react";
 import { dynamicTime } from "../../utils/utilities";
 import icon from "../../assets/images/Mohan-muruge.jpg";
 import "./CommentSection.scss";
 
 export function CommentSection({ featuredVideo }) {
   const commentList = featuredVideo.comments;
+
+  const [isInvalid, setInvalidClass] = useState(false);
+
+  const handleInvalidClass = (e) => {
+    e.preventDefault();
+    if (commentInput.trim() === "") {
+      setInvalidClass(true);
+      setTimeout(() => {
+        alert("Please fill in the empty fields");
+      }, 50);
+    } else {
+      setCommentInput("");
+      setInvalidClass(false);
+      console.log("Comment submitted!");
+    }
+  };
+
+  const [commentInput, setCommentInput] = useState("");
+
+  const handleCommentInput = (e) => {
+    setCommentInput(e.target.value);
+    if (e.target.value.trim() !== "") {
+      setInvalidClass(false);
+    } else {
+      setInvalidClass(true);
+    }
+  };
 
   return (
     <section className="comments">
@@ -15,18 +43,26 @@ export function CommentSection({ featuredVideo }) {
           alt="The user's profile picture"
           className="comments__pfp"
         />
-        <form action="submit" className="comments__form">
+        <form
+          action="submit"
+          className="comments__form"
+          id="commentsForm"
+          onSubmit={handleInvalidClass}
+        >
           <div className="comments__form--top">
             <h3 className="comments__form-title">Join the Conversation</h3>
             <textarea
               name="comment"
               id="comment"
-              className="comments__comment"
+              className={`comments__comment ${
+                isInvalid ? "comments__comment--invalid" : ""
+              }`}
+              value={commentInput}
               placeholder="Add a new comment"
-              required
+              onChange={handleCommentInput}
             ></textarea>
           </div>
-          <button type="button" className="comments__submit">
+          <button type="submit" className="comments__submit">
             Comment
           </button>
         </form>

@@ -68,10 +68,14 @@
         height: 6.25rem;
         border: 0.0625rem solid variables.$mercury;
         border-radius: 0.25rem;
-        outline: none;
+        outline-color: variables.$brainflix-blue;
         padding: 0.75rem;
         background-color: variables.$alabaster;
         width: 100%;
+
+        &--invalid {
+            border: 0.0625rem solid #D22D2D;
+        }
 
         &::placeholder {
             color: variables.$brainflix-darkblack;
@@ -90,16 +94,18 @@
         background-image: url('../../assets/add_comment.svg');
         background-repeat: no-repeat;
         background-position: 3%;
-        color: variables.$alabaster;
+        color: variables.$white;
         font-weight: 600;
         text-transform: uppercase;
         padding: 0.75rem;
         border: none;
         border-radius: 0.25rem;
         margin: 1rem 0;
+        transition: 0.2s ease-in;
 
         &:hover {
             cursor: pointer;
+            background-color: variables.$brainflix-darkblue;
         }
 
         @include mixins.tablet {
