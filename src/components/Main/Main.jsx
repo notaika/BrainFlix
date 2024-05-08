@@ -1,20 +1,10 @@
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import VideoInfo from "../VideoInfo/VideoInfo";
-import VideoDetails from "../../data/video-details.json";
 import CommentSection from "../CommentSection/CommentSection";
 import Sidebar from "../Sidebar/Sidebar";
-import { useState } from "react";
 import "./Main.scss";
 
-export function Main() {
-  const videoData = VideoDetails;
-  
-  const [featuredVideo, setFeaturedVideo] = useState(videoData[0]);
-
-  function handleFeaturedVideo(id) {
-    const newFeaturedVideo = videoData.find((video) => video.id === id);
-    setFeaturedVideo(newFeaturedVideo);
-  }
+export function Main({ videoData, featuredVideo, handleFeaturedVideo }) {
 
   return (
     <main className="main">
@@ -27,7 +17,6 @@ export function Main() {
         <Sidebar
           videoData={videoData}
           featuredVideo={featuredVideo}
-          handleFeaturedVideo={handleFeaturedVideo}
         />
       </div>
     </main>

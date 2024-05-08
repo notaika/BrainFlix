@@ -1,5 +1,5 @@
 import VideoList from "../VideoList/VideoList";
-import VideoDetails from "../../data/video-details.json";
+import { Link } from 'react-router-dom';
 import "./Sidebar.scss";
 
 export function Sidebar({ videoData, featuredVideo, handleFeaturedVideo }) {
@@ -13,14 +13,14 @@ export function Sidebar({ videoData, featuredVideo, handleFeaturedVideo }) {
 
       {filteredVideos.map((video) => {
         return (
+          <Link to={`/${video.id}`} style={{ textDecoration: 'none' }} key={video.id}>
           <VideoList
             image={video.image}
             title={video.title}
             channel={video.channel}
             id={video.id}
             key={video.id}
-            onClick={() => handleFeaturedVideo(video.id)}
-          />
+          /></Link>
         );
       })}
     </aside>

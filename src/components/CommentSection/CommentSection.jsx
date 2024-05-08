@@ -5,8 +5,7 @@ import icon from "../../assets/images/Mohan-muruge.jpg";
 import "./CommentSection.scss";
 
 export function CommentSection({ featuredVideo }) {
-  const commentList = featuredVideo.comments;
-
+  const commentList = featuredVideo && featuredVideo.comments ? featuredVideo.comments : [];
   const [isInvalid, setInvalidClass] = useState(false);
 
   const handleInvalidClass = (e) => {

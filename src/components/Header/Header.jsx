@@ -1,11 +1,18 @@
 import "./Header.scss";
+import { Link, useNavigate } from 'react-router-dom';
 import icon from "../../assets/images/Mohan-muruge.jpg";
 import logo from "../../assets/BrainFlix-logo.svg";
 
 export function Header() {
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    navigate('/upload');
+  }
+
   return (
     <header className="header">
-      <img className="header__logo" src={logo} alt="brainflix logo" />
+      <Link to='/'><img className="header__logo" src={logo} alt="brainflix logo" /></Link>
       <form action="submit" className="header__nav" id="searchForm">
         <input
           className="header__search"
@@ -13,7 +20,7 @@ export function Header() {
           placeholder="Search"
           name="search"
         />
-        <button className="header__search-btn" type="button">
+        <button className="header__search-btn" type="button" onClick={handleClick}>
           UPLOAD
         </button>
       </form>
