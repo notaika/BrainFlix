@@ -42,6 +42,7 @@ export default function HomePage() {
           `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoItem.id}?api_key=${API_KEY}`
         );
         setFeaturedVideo(featuredResponse.data);
+        console.log(videoItem, videoItem.id)
       }
     } catch (error) {
       console.error(`ERROR: Unable to set featured video, ${error}`);
@@ -49,6 +50,7 @@ export default function HomePage() {
   }
 
   useEffect(() => {fetchVideoItem()}, [videoItem.id]);
+  
   return (
     <>
       <Main videoData={videoData} featuredVideo={featuredVideo} />
