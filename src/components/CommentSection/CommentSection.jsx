@@ -1,7 +1,6 @@
 import CommentItem from "../CommentItem/CommentItem";
 import { useState } from "react";
 import { dynamicTime } from "../../utils/utilities";
-import { v4 as uuidv4 } from 'uuid';
 import icon from "../../assets/images/Mohan-muruge.jpg";
 import "./CommentSection.scss";
 
