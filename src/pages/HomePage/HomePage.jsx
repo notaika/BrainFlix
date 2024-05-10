@@ -55,11 +55,13 @@ export default function HomePage() {
   }, [videoItem.id]);
 
   async function postComment(newComment) {
-    if (!newComment || !videoItem.id) return;
+    if (!newComment) return;
+
+    const targetVideoId = videoItem.id || featuredVideo.id;
 
     try {
       const response = await axios.post(
-        `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoItem.id}/comments?api_key=${API_KEY}`,
+        `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${targetVideoId}/comments?api_key=${API_KEY}`,
         newComment
       );
       console.log(
@@ -77,9 +79,12 @@ export default function HomePage() {
   }
 
   async function deleteComment(commentId) {
+
+    const targetVideoId = videoItem.id || featuredVideo.id;
+    
     try {
       const response = await axios.delete(
-        `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoItem.id}/comments/${commentId}?api_key=${API_KEY}`
+        `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${targetVideoId}/comments/${commentId}?api_key=${API_KEY}`
       );
 
       setFeaturedVideo((prevState) => ({
