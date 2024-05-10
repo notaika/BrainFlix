@@ -5,44 +5,44 @@
 .uploads {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid variables.$mercury;
+    border-top: 0.0625rem solid variables.$mercury;
     
     &__container {
         display: flex;
         flex-direction: column;
-        margin: 0 16px 16px;
+        margin: 0 1rem 1rem;
 
         @include mixins.tablet {
-            margin: 0 40px 0px 40px;       
+            margin: 0 2.5rem 0rem 2.5rem;       
         }
         @include mixins.desktop {
-            margin: 16px 160px 0 160px;       
+            margin: 1rem 10rem 0 10rem;       
         }
     }
     &__title {
-        padding: 24px 0;
+        padding: 1.5rem 0;
 
         @include mixins.tablet {
-            border-bottom: 1px solid variables.$mercury;     
-            font-size: 36px;  
-            margin-bottom: 24px;
+            border-bottom: 0.0625rem solid variables.$mercury;     
+            font-size: 2.25rem;  
+            margin-bottom: 1.5rem;
         }
     }
     &__header {
         color: variables.$silver;
         text-transform: uppercase;
-        padding-bottom: 8px;
+        padding-bottom: 0.5rem;
     }
     &__thumbnail {
         &-img {
             width: 90vw;
-            padding-bottom: 16px;
+            padding-bottom: 1rem;
 
             @include mixins.tablet {
                 max-width: 45vw;
             }
             @include mixins.desktop {
-                max-width: 353.75px;   
+                max-width: 22.1094rem;   
             }
         }
     }
@@ -58,28 +58,28 @@
             width: 100%;
 
             @include mixins.desktop {
-                margin: 8px 0 0 24px;
+                margin: 0.5rem 0 0 1.5rem;
             }
         }
         &-title, &-description {
             width: 100%;
             padding: 0.65rem;
-            border: 1px solid variables.$mercury;
-            border-radius: 4px;
-            margin-bottom: 16px;
+            border: 0.0625rem solid variables.$mercury;
+            border-radius: 0.25rem;
+            margin-bottom: 1rem;
             background-color: variables.$alabaster;
 
             &::placeholder {
                 color: variables.$brainflix-black;
             }
             @include mixins.tablet{
-                font-size: 15px;
+                font-size: 0.9375rem;
             }
         }
         &-description {
-            height: 90px;
+            height: 5.625rem;
             @include mixins.tablet{
-                margin-bottom: 32px;   
+                margin-bottom: 2rem;   
             }
         }
         &-buttons {
@@ -91,8 +91,8 @@
             @include mixins.tablet{
                 flex-direction: row-reverse;
                 justify-content: flex-start;
-                border-top: 1px solid variables.$mercury;
-                padding-top: 12px;
+                border-top: 0.0625rem solid variables.$mercury;
+                padding-top: 0.75rem;
             }
         }
         &-submit {
@@ -126,18 +126,18 @@
         }
         &-cancel {
             color: variables.$brainflix-blue;
-            font-size: 12px;
+            font-size: 0.75rem;
             width: 100%;
             text-align: center;
             text-decoration: none;
             font-weight: 600;
-            padding-top: 46px;
+            padding-top: 2.875rem;
 
             @include mixins.tablet{
                 font-size: 0.875rem;
                 width: 30%;
                 position: relative;
-                bottom: 19.5px;   
+                bottom: 1.2188rem;   
             }
             @include mixins.desktop {
                 width: 20%;   

@@ -4,7 +4,7 @@ import CommentSection from "../CommentSection/CommentSection";
 import Sidebar from "../Sidebar/Sidebar";
 import "./Main.scss";
 
-export function Main({ videoData, featuredVideo, handleFeaturedVideo }) {
+export function Main({ videoData, featuredVideo, postComment, deleteComment }) {
 
   return (
     <main className="main">
@@ -12,7 +12,7 @@ export function Main({ videoData, featuredVideo, handleFeaturedVideo }) {
       <div className="main__desktop">
         <div className="main__desktop--left">
           <VideoInfo details={videoData} featuredVideo={featuredVideo} />
-          <CommentSection videoData={videoData} featuredVideo={featuredVideo} />
+          <CommentSection videoData={videoData} featuredVideo={featuredVideo} postComment={postComment} deleteComment={deleteComment}/>
         </div>
         <Sidebar
           videoData={videoData}

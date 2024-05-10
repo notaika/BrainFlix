@@ -1,10 +1,11 @@
 import CommentItem from "../CommentItem/CommentItem";
 import { useState } from "react";
 import { dynamicTime } from "../../utils/utilities";
+import { v4 as uuidv4 } from 'uuid';
 import icon from "../../assets/images/Mohan-muruge.jpg";
 import "./CommentSection.scss";
 
-export function CommentSection({ featuredVideo }) {
+export function CommentSection({ featuredVideo, postComment, deleteComment }) {
   const commentList = featuredVideo && featuredVideo.comments ? featuredVideo.comments : [];
   const [isInvalid, setInvalidClass] = useState(false);
 
@@ -16,9 +17,16 @@ export function CommentSection({ featuredVideo }) {
         alert("Please fill in the empty fields");
       }, 50);
     } else {
+
+      const newComment = {
+        name: 'Mohan Muruge',
+        comment: commentInput
+      }
+      
+      postComment(newComment);
       setCommentInput("");
       setInvalidClass(false);
-      console.log("Comment submitted!");
+      console.log("Comment posted!", commentInput);
     }
   };
 
@@ -33,6 +41,8 @@ export function CommentSection({ featuredVideo }) {
     }
   };
 
+  const sortedComments = featuredVideo.comments ? featuredVideo.comments.sort((a, b) => b.timestamp - a.timestamp) : [];
+  
   return (
     <section className="comments">
       <h3 className="comments__count">{commentList.length} Comments</h3>
@@ -43,7 +53,6 @@ export function CommentSection({ featuredVideo }) {
           className="comments__pfp"
         />
         <form
-          action="submit"
           className="comments__form"
           id="commentsForm"
           onSubmit={handleInvalidClass}
@@ -67,13 +76,14 @@ export function CommentSection({ featuredVideo }) {
         </form>
       </div>
 
-      {commentList.map((comment) => {
+      {sortedComments.map((comment) => {
         return (
           <CommentItem
             name={comment.name}
             comment={comment.comment}
             date={dynamicTime(comment.timestamp)}
             key={comment.id}
+            onDelete={() => deleteComment(comment.id)}
           />
         );
       })}
