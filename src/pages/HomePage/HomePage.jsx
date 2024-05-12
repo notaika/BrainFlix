@@ -79,9 +79,8 @@ export default function HomePage() {
   }
 
   async function deleteComment(commentId) {
-
     const targetVideoId = videoItem.id || featuredVideo.id;
-    
+
     try {
       const response = await axios.delete(
         `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${targetVideoId}/comments/${commentId}?api_key=${API_KEY}`
@@ -92,8 +91,8 @@ export default function HomePage() {
         comments: prevState.comments.filter(
           (comment) => comment.id !== commentId
         ),
-      }))
-      console.log('SUCCESS: Comment was successfully deleted', response.data);
+      }));
+      console.log("SUCCESS: Comment was successfully deleted", response.data);
     } catch (error) {
       console.log("ERROR: Failed to delete comment", error);
     }

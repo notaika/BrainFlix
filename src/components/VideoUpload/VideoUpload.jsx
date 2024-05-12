@@ -1,6 +1,6 @@
 import "./VideoUpload.scss";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import thumbnailImage from "../../assets/images/Upload-video-preview.jpg";
 
 export default function VideoUpload() {

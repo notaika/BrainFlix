@@ -1,4 +1,5 @@
 import deleteIcon from '../../assets/delete.svg';
+import mohanPfp from '../../assets/images/Mohan-muruge.jpg'
 import "./CommentItem.scss";
 
 export function CommentItem({ name, comment, date, onDelete }) {
