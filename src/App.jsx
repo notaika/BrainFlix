@@ -4,20 +4,16 @@ import Header from './components/Header/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
-
 import './App.scss';
 
-
 function App() {
-  const BASE_URL = `http://localhost:8080`
   const [videoData, setVideoData] = useState([]);
 
   async function fetchVideos() {
     try {
       const response = await axios.get(
-        `${BASE_URL}/videos`
+        `${import.meta.env.VITE_LOCALHOST}/videos`
       );
-      
       setVideoData(response.data);
     } catch (error) {
       console.error(`ERROR: Could not fetch videos, ${error}`);
@@ -30,7 +26,7 @@ function App() {
 
   async function postVideo(newVideo) {
     try {
-      const response = await axios.post(`${BASE_URL}/videos`, newVideo);
+      const response = await axios.post(`${import.meta.env.VITE_LOCALHOST}/videos`, newVideo);
 
       setVideoData(curr => [...curr, response.data])
     } catch(error) {

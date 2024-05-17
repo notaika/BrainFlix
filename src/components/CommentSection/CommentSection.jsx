@@ -9,7 +9,6 @@ import "./CommentSection.scss";
 export function CommentSection({ featuredVideo, postComment, deleteComment, setFeaturedVideo }) {
   const commentList = featuredVideo && featuredVideo.comments ? featuredVideo.comments : [];
   const [isInvalid, setInvalidClass] = useState(false);
-  const BASE_URL = `http://localhost:8080`;
   const videoItem = useParams();
 
   async function postComment(newComment) {
@@ -18,7 +17,7 @@ export function CommentSection({ featuredVideo, postComment, deleteComment, setF
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/videos/${targetVideoId}/comments`,
+        `${import.meta.env.VITE_LOCALHOST}/videos/${targetVideoId}/comments`,
         { comment: newComment }
       );
 
@@ -36,7 +35,7 @@ export function CommentSection({ featuredVideo, postComment, deleteComment, setF
 
     try {
       const response = await axios.delete(
-        `${BASE_URL}/videos/${targetVideoId}/comments/${commentId}`
+        `${import.meta.env.VITE_LOCALHOST}/videos/${targetVideoId}/comments/${commentId}`
       );
 
       setFeaturedVideo((prevState) => ({

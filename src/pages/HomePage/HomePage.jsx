@@ -6,26 +6,20 @@ import Main from "../../components/Main/Main";
 export default function HomePage({ videoData }) {
   const [featuredVideo, setFeaturedVideo] = useState({});
   const videoItem = useParams();
-  const BASE_URL = `http://localhost:8080`;
 
   async function fetchVideoItem() {
     try {
-      if (!videoItem.id) {
-        const response = await axios.get(
-          `${BASE_URL}/videos`
-        );
-
-        const featuredResponse = await axios.get(
-          `${BASE_URL}/videos/${response.data[0].id}`
-        );
-        setFeaturedVideo(featuredResponse.data); 
-
-      } else {
-        const featuredResponse = await axios.get(
-          `${BASE_URL}/videos/${videoItem.id}`
-        );
-        setFeaturedVideo(featuredResponse.data);
+      let videoId = videoItem.id;
+  
+      if (!videoId) {
+        const response = await axios.get(`${import.meta.env.VITE_LOCALHOST}/videos`);
+        videoId = response.data[0].id;
       }
+  
+      const featuredResponse = await axios.get(
+        `${import.meta.env.VITE_LOCALHOST}/videos/${videoId}`
+      );
+      setFeaturedVideo(featuredResponse.data);
     } catch (error) {
       console.error(`ERROR: Unable to set featured video, ${error}`);
     }

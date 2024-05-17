@@ -8,7 +8,6 @@ import "./VideoInfo.scss";
 
 export function VideoInfo({ featuredVideo, videoData }) {
   const [likes, setLikes] = useState(featuredVideo.likes);
-  const BASE_URL = `http://localhost:8080`;
   const videoItem = useParams();
 
   useEffect(() => {
@@ -18,7 +17,7 @@ export function VideoInfo({ featuredVideo, videoData }) {
   const handleLike = async () => {
     const targetVideoId = videoItem.id || featuredVideo.id;
     try {
-      const response = await axios.put(`${BASE_URL}/videos/${targetVideoId}/likes`);
+      const response = await axios.put(`${import.meta.env.VITE_LOCALHOST}/videos/${targetVideoId}/likes`);
       setLikes(response.data.likes);
     } catch(error) {
       console.log(`ERROR: Unable to add like onto comment.`, error)
