@@ -2,7 +2,7 @@ import VideoList from "../VideoList/VideoList";
 import { Link } from 'react-router-dom';
 import "./Sidebar.scss";
 
-export function Sidebar({ videoData, featuredVideo, handleFeaturedVideo }) {
+export function Sidebar({ videoData, featuredVideo }) {
   const filteredVideos = videoData.filter(
     (videos) => videos.id !== featuredVideo.id
   );
@@ -13,7 +13,7 @@ export function Sidebar({ videoData, featuredVideo, handleFeaturedVideo }) {
 
       {filteredVideos.map((video) => {
         return (
-          <Link to={`/${video.id}`} className="videos__list-item" key={video.id}>
+          <Link to={`/videos/${video.id}`} className="videos__list-item" key={video.id}>
           <VideoList
             image={video.image}
             title={video.title}

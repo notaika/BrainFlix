@@ -6,7 +6,7 @@ import LikesIcon from "../../assets/likes.svg";
 import axios from "axios";
 import "./VideoInfo.scss";
 
-export function VideoInfo({ featuredVideo, videoData }) {
+export function VideoInfo({ featuredVideo }) {
   const [likes, setLikes] = useState(featuredVideo.likes);
   const videoItem = useParams();
 

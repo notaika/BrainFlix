@@ -1,0 +1,29 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+
+
+.notfound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    
+    &-num {
+        font-size: 3.75rem;
+        padding-bottom: 2rem;
+    }
+    &__error-msg {
+        padding-bottom: 1rem;
+    }
+    &-btn {
+        text-decoration: none;
+        font-weight: 600;
+        color: variables.$brainflix-blue;
+        transition: 0.2s ease;
+
+        &:hover {
+            color: variables.$brainflix-darkblue;
+        }
+    }
+}

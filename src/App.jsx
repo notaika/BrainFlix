@@ -1,5 +1,6 @@
 import HomePage from './pages/HomePage/HomePage';
 import UploadPage from './pages/UploadPage/UploadPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Header from './components/Header/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react'
@@ -39,8 +40,9 @@ function App() {
     <Header />
     <Routes>
       <Route path="/" element={<HomePage videoData={videoData} setVideoData={setVideoData} />} />
-      <Route path="/:id" element={<HomePage videoData={videoData} setVideoData={setVideoData} />} />
+      <Route path="/videos/:id" element={<HomePage videoData={videoData} setVideoData={setVideoData} />} />
       <Route path="/upload" element={<UploadPage postVideo={postVideo} />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
     </BrowserRouter>
   )
