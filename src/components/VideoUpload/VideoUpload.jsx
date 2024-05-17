@@ -2,8 +2,9 @@ import "./VideoUpload.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import thumbnailImage from "../../assets/images/Upload-video-preview.jpg";
+import { Link } from 'react-router-dom';
 
-export default function VideoUpload() {
+export default function VideoUpload({ postVideo }) {
   const [values, setValues] = useState({
     videoTitle: "",
     videoDescription: "",
@@ -22,8 +23,13 @@ export default function VideoUpload() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const newVideo = {
+      title: values.videoTitle,
+      description: values.videoDescription
+    }
+
+    postVideo(newVideo)
     redirect('/')
-    console.log('Form Submitted.')
     alert('Video uploaded.')
   }
 
@@ -64,8 +70,8 @@ export default function VideoUpload() {
           </div>
         </form>
         <div className="uploads__form-buttons">
-            <button onClick={handleSubmit} className="uploads__form-submit">PUBLISH</button>
-            <a href="/" className="uploads__form-cancel">CANCEL</a>
+            <button type="submit "onClick={handleSubmit} className="uploads__form-submit">PUBLISH</button>
+            <Link to="/" className="uploads__form-cancel" type="button">CANCEL</Link>
           </div>
       </div>
     </section>

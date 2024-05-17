@@ -2,12 +2,54 @@ import CommentItem from "../CommentItem/CommentItem";
 import { useState } from "react";
 import { dynamicTime } from "../../utils/utilities";
 import icon from "../../assets/images/Mohan-muruge.jpg";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import "./CommentSection.scss";
 
-export function CommentSection({ featuredVideo, postComment, deleteComment }) {
+export function CommentSection({ featuredVideo, postComment, deleteComment, setFeaturedVideo }) {
   const commentList = featuredVideo && featuredVideo.comments ? featuredVideo.comments : [];
   const [isInvalid, setInvalidClass] = useState(false);
+  const BASE_URL = `http://localhost:8080`;
+  const videoItem = useParams();
 
+  async function postComment(newComment) {
+    if (!newComment) return;
+    const targetVideoId = videoItem.id || featuredVideo.id;
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/videos/${targetVideoId}/comments`,
+        { comment: newComment }
+      );
+
+      setFeaturedVideo((current) => ({
+        ...current,
+        comments: [response.data, ...current.comments],
+      }));
+    } catch (error) {
+      console.error(`ERROR: Cannot fetch comments data`, error);
+    }
+  }
+
+  async function deleteComment(commentId) {
+    const targetVideoId = videoItem.id || featuredVideo.id;
+
+    try {
+      const response = await axios.delete(
+        `${BASE_URL}/videos/${targetVideoId}/comments/${commentId}`
+      );
+
+      setFeaturedVideo((prevState) => ({
+        ...prevState,
+        comments: prevState.comments.filter(
+          (comment) => comment.id !== commentId
+        ),
+      }));
+    } catch (error) {
+      console.log("ERROR: Failed to delete comment", error);
+    }
+  }
+  
   const handleInvalidClass = (e) => {
     e.preventDefault();
     if (commentInput.trim() === "") {
@@ -16,13 +58,7 @@ export function CommentSection({ featuredVideo, postComment, deleteComment }) {
         alert("Please fill in the empty fields");
       }, 50);
     } else {
-
-      const newComment = {
-        name: 'Mohan Muruge',
-        comment: commentInput
-      }
-      
-      postComment(newComment);
+      postComment(commentInput);
       setCommentInput("");
       setInvalidClass(false);
       console.log("Comment posted!", commentInput);

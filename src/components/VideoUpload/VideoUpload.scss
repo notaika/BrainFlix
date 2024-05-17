@@ -77,7 +77,9 @@
             }
         }
         &-description {
-            height: 5.625rem;
+            min-height: 5.625rem;
+            resize: none;
+
             @include mixins.tablet{
                 margin-bottom: 2rem;   
             }
@@ -132,7 +134,11 @@
             text-decoration: none;
             font-weight: 600;
             padding-top: 2.875rem;
+            transition: 0.1s ease;
 
+            &:hover{
+                color: variables.$brainflix-darkblue;
+            }
             @include mixins.tablet{
                 font-size: 0.875rem;
                 width: 30%;

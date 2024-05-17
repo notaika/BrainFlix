@@ -1,8 +1,8 @@
 import VideoUpload from "../../components/VideoUpload/VideoUpload";
 import "./UploadPage.scss";
 
-export default function UploadPage() {
+export default function UploadPage({ postVideo }) {
   return (
-    <VideoUpload />
+    <VideoUpload postVideo={postVideo} />
   )
 }

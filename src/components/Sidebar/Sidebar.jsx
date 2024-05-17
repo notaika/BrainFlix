@@ -13,7 +13,7 @@ export function Sidebar({ videoData, featuredVideo, handleFeaturedVideo }) {
 
       {filteredVideos.map((video) => {
         return (
-          <Link to={`/${video.id}`} style={{ textDecoration: 'none' }} key={video.id}>
+          <Link to={`/${video.id}`} className="videos__list-item" key={video.id}>
           <VideoList
             image={video.image}
             title={video.title}

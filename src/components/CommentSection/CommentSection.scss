@@ -66,12 +66,14 @@
     }
     &__comment {
         height: 6.25rem;
+        min-height: 3rem;
         border: 0.0625rem solid variables.$mercury;
         border-radius: 0.25rem;
         outline-color: variables.$brainflix-blue;
         padding: 0.75rem;
         background-color: variables.$alabaster;
         width: 100%;
+        resize: none;
 
         &--invalid {
             border: 0.0625rem solid #D22D2D;
@@ -102,6 +104,7 @@
         border-radius: 0.25rem;
         margin: 1rem 0;
         transition: 0.2s ease-in;
+        max-height: 3rem;
 
         &:hover {
             cursor: pointer;

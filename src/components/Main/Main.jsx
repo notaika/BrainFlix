@@ -4,15 +4,15 @@ import CommentSection from "../CommentSection/CommentSection";
 import Sidebar from "../Sidebar/Sidebar";
 import "./Main.scss";
 
-export function Main({ videoData, featuredVideo, postComment, deleteComment }) {
+export function Main({ videoData, featuredVideo, postComment, deleteComment, setFeaturedVideo }) {
 
   return (
     <main className="main">
       <VideoPlayer videoData={videoData} featuredVideo={featuredVideo} />
       <div className="main__desktop">
         <div className="main__desktop--left">
-          <VideoInfo details={videoData} featuredVideo={featuredVideo} />
-          <CommentSection videoData={videoData} featuredVideo={featuredVideo} postComment={postComment} deleteComment={deleteComment}/>
+          <VideoInfo details={videoData} featuredVideo={featuredVideo} setFeaturedVideo={setFeaturedVideo} />
+          <CommentSection videoData={videoData} featuredVideo={featuredVideo} postComment={postComment} deleteComment={deleteComment} setFeaturedVideo={setFeaturedVideo}/>
         </div>
         <Sidebar
           videoData={videoData}
